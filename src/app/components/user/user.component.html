@@ -1,0 +1,24 @@
+<form #MyForm="ngForm" (ngSubmit)="sub(form)">
+<h2>
+  SEARCH User in CONSOLE
+</h2>
+  <input type="text " [(ngModel)]="user.username" #username="ngModel" required="required" name="username"><br>
+  <p *ngIf="!username.valid">
+   ENTER USERNAME
+  </p>
+
+  <input type="text " [(ngModel)]="user.email" #email="ngModel" required="required" name="email"><br>
+<p *ngIf="!email.valid">
+    ENTER EMAIL
+</p>
+
+  <button [disabled]="username.untouched && email.untouched">
+    Get current USER
+  </button>
+</form>
+
+<hr>
+
+<!--<div *ngFor="let u of users">-->
+<!--  ID: {{u.id}}, NAME: {{u.name}}, USERNAME: {{u.username}}, EMAIL: {{u.email}};-->
+<!--</div>-->
