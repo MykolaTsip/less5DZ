@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
 
    currentUser: User[];
 
-  constructor(private query: QueryFilterDataService, private router: Router) {
+  constructor(private query: QueryFilterDataService) {
     this.query.getUsers().subscribe(value => this.users = value);
   }
 
@@ -32,8 +32,5 @@ export class UserComponent implements OnInit {
     this.currentUser = this.query.getFilterUsers(this.users, form.control.value);
 
     console.log(this.currentUser);
-
-    this.router.navigate([`users/${this.currentUser}`]);
-
   }
 }

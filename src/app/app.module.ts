@@ -9,7 +9,7 @@ import {RouterModule} from '@angular/router';
 import { UserComponent } from './components/user/user.component';
 import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
-import { CurrentUserComponent } from './components/current-user/current-user.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +17,6 @@ import { CurrentUserComponent } from './components/current-user/current-user.com
     UserComponent,
     PostComponent,
     CommentComponent,
-    CurrentUserComponent
   ],
   imports: [
     BrowserModule,
@@ -25,10 +24,7 @@ import { CurrentUserComponent } from './components/current-user/current-user.com
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: 'users', component: UserComponent,
-        children: [{
-          path: ':username', component: CurrentUserComponent
-        }],
+        path: 'users', component: UserComponent
       },
       {
         path: 'posts', component: PostComponent
