@@ -1,3 +1,24 @@
+<form #ngPost="ngForm" (ngSubmit)="searchPost(ngPost)">
+ <h2>
+   Find need your posts
+ </h2>
+
+    <input type="number" [(ngModel)]="post.id" #id="ngModel" name="id"><br>
+    <p *ngIf="id.untouched">
+        Enter post id
+    </p>
+
+  <input type="text" [(ngModel)]="post.title" #title="ngModel" name="title"><br>
+<p *ngIf="title.untouched">
+  Enter segment title text
+</p>
+  <button [disabled]="id.untouched && title.untouched">search posts</button>
+</form>
+
+
+<hr>
+
+
 <div *ngFor="let p of posts">
   USER-ID: {{p.userId}},
   <br>

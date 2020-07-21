@@ -1,3 +1,20 @@
+<form #FormComment="ngForm" (ngSubmit)="findComment(FormComment)" >
+  <h2>find need your comments</h2>
+  <input type="number" [(ngModel)]="comment.id" #id="ngModel" name="id"> <br>
+    <p *ngIf="id.untouched">
+      Enter ID
+    </p>
+  <input type="number" [(ngModel)]="comment.postId" #postId="ngModel" name="postId"> <br>
+<p *ngIf="postId.untouched">
+  Enter POST-ID
+</p>
+
+  <button [disabled]="id.untouched || postId.untouched"> find comments</button>
+</form>
+
+
+<hr>
+
 <div *ngFor="let c of comments">
   POST-ID: {{c.postId}},
   <br>

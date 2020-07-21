@@ -25,7 +25,7 @@ export class QueryFilterDataService {
 
   getFilterUsers(users: User[], user): User[] {
 
-    const result = users.filter(value => value.username.toLowerCase().includes(user.name.toLowerCase())
+    const result = users.filter(value => value.username.toLowerCase().includes(user.username.toLowerCase())
       && value.email.toLowerCase().includes(user.email.toLowerCase()));
 
     this.users = result;
@@ -39,10 +39,10 @@ export class QueryFilterDataService {
 
   getFilterPosts(posts: Post[], post): Post[] {
 
-    const result = posts.filter(value => value.id === +post.id
-      || value.title.toLowerCase().indexOf(post.title.toLowerCase()));
+    const result1 = posts.filter(value => value.id === +post.id
+      || value.title.includes(post.title));
 
-    this.posts = result;
+    this.posts = result1;
 
     return this.posts;
   }
@@ -54,10 +54,10 @@ export class QueryFilterDataService {
 
   getFilterComments(comments: Comment[], comment): Comment[] {
 
-    const result = comments.filter(value => value.postId === +comment.postId
+    const result2 = comments.filter(value => value.postId === +comment.postId
       || value.id === +comment.id);
 
-    this.comments = result;
+    this.comments = result2;
 
     return this.comments;
   }

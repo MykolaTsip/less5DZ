@@ -1,6 +1,6 @@
-<form #MyForm="ngForm" (ngSubmit)="sub(form)">
+<form #MyForm="ngForm" (ngSubmit)="sub(MyForm)">
 <h2>
-  SEARCH User in CONSOLE
+  SEARCH your User
 </h2>
   <input type="text " [(ngModel)]="user.username" #username="ngModel" required="required" name="username"><br>
   <p *ngIf="!username.valid">
@@ -17,8 +17,9 @@
   </button>
 </form>
 
+
 <hr>
 
-<!--<div *ngFor="let u of users">-->
-<!--  ID: {{u.id}}, NAME: {{u.name}}, USERNAME: {{u.username}}, EMAIL: {{u.email}};-->
-<!--</div>-->
+<div *ngFor="let u of users">
+  ID: {{u.id}}, NAME: {{u.name}}, USERNAME: {{u.username}}, EMAIL: {{u.email}};
+</div>

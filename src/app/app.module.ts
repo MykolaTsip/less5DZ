@@ -9,13 +9,15 @@ import {RouterModule} from '@angular/router';
 import { UserComponent } from './components/user/user.component';
 import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { CurrentUserComponent } from './components/current-user/current-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     PostComponent,
-    CommentComponent
+    CommentComponent,
+    CurrentUserComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,10 @@ import { CommentComponent } from './components/comment/comment.component';
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: 'users', component: UserComponent
+        path: 'users', component: UserComponent,
+        children: [{
+          path: ':username', component: CurrentUserComponent
+        }],
       },
       {
         path: 'posts', component: PostComponent
